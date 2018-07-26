@@ -9,7 +9,7 @@
 namespace dpazuic;
 
 
-class aitsGrades
+class aits_grades
 {
 
     /**
