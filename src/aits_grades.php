@@ -41,7 +41,7 @@ class aits_grades
     protected $response;
 
     /**
-     * aitsGrades constructor.
+     * aits_grades constructor.
      *
      * @param null $uin
      * @param null $senderAppID
@@ -198,7 +198,7 @@ class aits_grades
     {
 
         // AITS Term API Source
-        $source = 'https://webservices-dev.admin.uillinois.edu/epWS/StudentApi/api/students/' . $this->uin . '/aitsGrades';
+        $source = 'https://webservices-dev.admin.uillinois.edu/epWS/StudentApi/api/students/' . $this->uin . '/grades';
 
         if(!empty($this->term)) {
 
@@ -221,13 +221,18 @@ class aits_grades
         // JSON Response
         $response = curl_exec($curl);
 
-        // todo - should check for a 200 from AITS service
+        if(curl_getinfo($curl, CURLINFO_HTTP_CODE) == 200) {
 
+            // Cache the response in $this->response
+            $this->response = new \stdClass();
+            $this->response->type = 'JSON';
+            $this->response->data = $response;
 
-        // Cache the response in $this->response
-        $this->response = new \stdClass();
-        $this->response->type = 'JSON';
-        $this->response->data = $response;
+        } else {
+
+            throw new \Exception($response);
+
+        }
 
     }
 

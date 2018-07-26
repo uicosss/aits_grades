@@ -28,7 +28,6 @@ try {
 
     // Call the AITS Term API
     $termAPI = new dpazuic\aits_grades($argv[2], $argv[1], empty($argv[3]) ? null : $argv[3]);
-    $termAPI = new dpazuic\aits_grades("","","");
 
     // Get the results of a call
     $termAPI->getAITSGrades();
