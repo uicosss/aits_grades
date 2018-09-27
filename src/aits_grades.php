@@ -41,6 +41,13 @@ class aits_grades
     protected $response;
 
     /**
+     * Boolean used to determine if AITS dev endpoint should be utilized
+     *
+     * @var bool
+     */
+    protected $dev = false;
+
+    /**
      * aits_grades constructor.
      *
      * @param null $uin
@@ -68,6 +75,22 @@ class aits_grades
 
         // Set the term that is to be queried
         $this->setTerm($term);
+
+    }
+
+    /**
+     * Void method used to set
+     *
+     * @param bool $dev
+     */
+    public function dev($dev=true)
+    {
+
+        if($dev) {
+
+            $this->dev = true;
+
+        }
 
     }
 
@@ -198,7 +221,15 @@ class aits_grades
     {
 
         // AITS Term API Source
-        $source = 'https://webservices-dev.admin.uillinois.edu/epWS/StudentApi/api/students/' . $this->uin . '/grades';
+        if($this->dev) {
+
+            $source = 'https://webservices-dev.admin.uillinois.edu/epWS/StudentApi/api/students/' . $this->uin . '/grades';
+
+        } else {
+
+            $source = 'https://webservices.admin.uillinois.edu/epWS/StudentApi/api/students/' . $this->uin . '/grades';
+
+        }
 
         if(!empty($this->term)) {
 
