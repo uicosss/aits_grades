@@ -27,7 +27,7 @@ try {
     }
 
     // Call the AITS Term API
-    $gradesAPI = new dpazuic\aits_grades($argv[2], $argv[1], empty($argv[3]) ? null : $argv[3]);
+    $gradesAPI = new Uicosss\aits_grades($argv[2], $argv[1], empty($argv[3]) ? null : $argv[3]);
 
     // Get the results of a call
     $gradesAPI->getAITSGrades();
