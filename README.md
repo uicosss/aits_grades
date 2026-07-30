@@ -9,7 +9,7 @@ To use the library, you need to:
 ```
 include_once(aits_grades.php');
 ```
-### or use composer `composer require Uicosss\aits_grades`
+### or use composer `composer require uicosss\aits_grades`
 ```
 include_once('vendor/autoload.php');
 ```
