@@ -9,16 +9,16 @@ To use the library, you need to:
 ```
 include_once(aits_grades.php');
 ```
-### or use composer `composer require dpazuic\aits_grades`
+### or use composer `composer require uicosss\aits_grades`
 ```
 include_once('vendor/autoload.php');
 ```
-### Instantiate an object of class `dpazuic\aits_grades`
+### Instantiate an object of class `Uicosss\aits_grades`
 ```
 $uin = '123456789'; 
 $senderAppID = 'YOUR_SENDER_APP_ID'; // Contact AITS for this
 $term = '220181'; // Optional
-$gradesAPI = new dpazuic\aits_grades($uin, $senderAppID, $term); // Includin 3rd argument, term, is optional
+$gradesAPI = new Uicosss\aits_grades($uin, $senderAppID, $term); // Includin 3rd argument, term, is optional
 ```
 **Note**: By default the third argument, term, is optional. If term is provided, the API fetches the grade information for the provided term. If the term is not provided, the API fetches the grade information for each term the student has registered courses.
 
