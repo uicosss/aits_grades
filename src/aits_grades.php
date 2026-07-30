@@ -6,7 +6,7 @@
  * Time: 10:27 AM
  */
 
-namespace dpazuic;
+namespace Uicosss;
 
 
 class aits_grades
